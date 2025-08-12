@@ -1,0 +1,10 @@
+customtkinter
+cryptography
+bcrypt
+pyotp
+qrcode
+Pillow
+python-dotenv
+Flask   
+Flask-Cors
+pyinstaller

@@ -1,0 +1,9 @@
+/venv/
+__pycache__/
+/uploads/
+vault.db
+.env
+/dist/
+/build/
+*.spec
+.DS_Store

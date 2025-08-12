@@ -1,0 +1,72 @@
+SecureVault User Guide
+
+Welcome to Secure Vault! This guide explains how to use all the features of the application.
+
+-----------------------------
+1. Account Management
+-----------------------------
+    
+Creating an Account:
+  - Click the "Sign Up" button on the main screen.
+  - Enter a unique username, email address, and a "Strong" password (the app will guide you).
+  - Enter the One-Time Password (OTP) sent to your email to verify it.
+  - Scan the QR code with an authenticator app (like Google Authenticator) to set up Two-Factor Authentication (MFA).
+
+Logging In:
+  - You will need your Username, Password, the on-screen CAPTCHA, and your 6-digit MFA code from your authenticator app.
+
+Forgot Password:
+  - This feature helps you reset your password if you are logged out. It requires access to your registered email.
+  - The success message will also remind you of your username.
+
+Change Password:
+  - This button appears on the main dashboard after you log in.
+  - It allows you to change your login password, but you must know your current password to do so.
+
+-----------------------------
+2. Core Vault Features
+-----------------------------
+
+Uploading a File:
+  - Click "Upload File to Encrypt".
+  - Select a file from your computer.
+  - WARNING: You must enter a strong passphrase for each file. Do not forget this passphrase, as it is the only way to decrypt your file.
+
+Listing Files:
+  - Shows a complete, searchable list of all your encrypted files. You can type in the search bar to filter the list.
+
+Deleting Files:
+  - Click "Delete Encrypted Files".
+  - Select one or more files using the checkboxes.
+  - WARNING: This action is permanent and cannot be undone.
+
+Retrieving a File:
+  - Click "Retrieve File".
+  - Select a single file using the radio button.
+  - You must enter the correct, original passphrase you used when you uploaded that specific file.
+  - Choose a location on your computer to save the decrypted file. A success message will give you an "Open File" button for convenience.
+
+-----------------------------
+3. Data Safety & Admin
+-----------------------------
+
+Backup Vault:
+  - Creates a single, secure backup file of your current vault.
+  - WARNING: You will be asked for a GPG Password to encrypt the entire backup. Do not lose this password.
+  - It is highly recommended to store backup files on an external drive.
+
+Restore Vault:
+  - Restores your vault from a backup file.
+  - WARNING: This will completely delete all files currently in your vault and replace them with the files from the backup.
+  - You can ONLY restore backups that belong to your specific user account.
+
+View Activity Log:
+  - Shows a complete history of all actions on your account. Use this to check for suspicious activity.
+
+Delete Account:
+  - Permanently deletes your account and all associated files.
+  - WARNING: This is irreversible. Your existing backups will become unusable.
+
+Factory Reset App (Login Screen):
+  - The most destructive action. It completely WIPES the entire application for ALL users.
+  - It is protected by the admin. Please contact the admin email, setup by the distributor/developer who had shared the .exe file for further details.

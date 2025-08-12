@@ -1,0 +1,11 @@
+Disclaimer & Privacy Information for SecureVault
+
+Last Updated: August 11, 2025
+
+Please be aware that the Secure Vault application is provided "as is" without any warranties. By using this software, you assume all associated risks, which include but are not limited to data loss or data corruption. The developers are not liable for any damages that may arise from the use of this application.
+
+We take your privacy very seriously. This application operates on a "zero knowledge" principle, meaning we can never access your data. All of your information, including your account details and encrypted files, is stored exclusively on your local computer in the 'vault.db' and 'uploads' folders. Your private files and passphrases are never transmitted over the internet.
+
+It's important to understand that you are solely responsible for your own security. This includes remembering your login password and MFA setup, securely managing any backups you create, and remembering the individual passphrases for each file. If you lose a file's passphrase, that file will be permanently inaccessible.
+
+Copyright © 2025 SecureVault. All rights reserved.
