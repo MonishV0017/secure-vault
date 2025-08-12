@@ -22,7 +22,7 @@ A secure, multi-user desktop application for encrypting and managing local files
 
 ### 2. Clone the Repository in a directory, ex: C:/ or D:/ (best to use Vs Code IDE)
 
-    git clone https://github.com/MonishV0017/securevault.git
+    git clone https://github.com/MonishV0017/secure-vault.git
     cd securevault
 
 ### 3. Set Up the Environment
