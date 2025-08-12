@@ -7,7 +7,7 @@ import shutil
 from datetime import datetime
 
 import auth
-from auth import DatabaseConnection # Import the new class
+from auth import DatabaseConnection
 import encryptor
 from config import UPLOAD_FOLDER
 
@@ -21,7 +21,7 @@ def create_backup(username, backup_passphrase, save_directory):
         records = cur.fetchall()
 
     if not records:
-        raise ValueError("No files to back up for this user.")
+        raise ValueError("No valid files to back up (database records may be orphaned).")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         file_records = []
@@ -32,7 +32,7 @@ def create_backup(username, backup_passphrase, save_directory):
                 file_records.append({'filename': filename, 'salt': salt, 'size_kb': size_kb, 'date_added': date_added})
         
         if not file_records:
-            raise ValueError("No valid files to back up.")
+            raise ValueError("No valid files found to back up.")
         
         manifest = {"owner_username": username, "owner_id": user_id, "files": file_records}
         with open(os.path.join(temp_dir, 'manifest.json'), 'w') as f:

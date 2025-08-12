@@ -2,7 +2,7 @@ from database import setup_db
 from gui import VaultApp
 import customtkinter as ctk
 
-DEV_MODE_AUTO_LOGIN = False
+DEV_MODE_AUTO_LOGIN = True
 DEV_TEST_USERNAME = "a"
 
 setup_db()

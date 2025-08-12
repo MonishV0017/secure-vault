@@ -524,7 +524,7 @@ class VaultApp(ctk.CTk):
             return custom_dialogs.CustomMessagebox(title="Error", message="Passphrase is required.")
         self._run_upload_with_progress(file_path, filename, passphrase, size)
 
-    def _run_upload_with_progress(self, file_path, filename, passphrase, size): # Runs upload in a background thread
+    def _run_upload_with_progress(self, file_path, filename, passphrase, size):
         progress_dialog = ctk.CTkToplevel(self)
         progress_dialog.title("Uploading...")
         progress_dialog.geometry("300x100")
@@ -542,14 +542,15 @@ class VaultApp(ctk.CTk):
                     custom_dialogs.CustomMessagebox(title="Error", message=message)
         def worker_thread():
             try:
-                dest_path = os.path.join(UPLOAD_FOLDER, filename)
+                dest_path = os.path.join(config.UPLOAD_FOLDER, filename)
                 shutil.copy(file_path, dest_path)
                 if progress_dialog.winfo_exists():
                     self.after(0, lambda: progress_bar.set(0.5) if progress_bar.winfo_exists() else None)
                 enc_path, salt = encryptor.encrypt_file(dest_path, passphrase)
                 os.remove(dest_path)
                 with self.db_lock:
-                    conn = sqlite3.connect('vault.db', timeout=10)
+                    # FIX: Use the correct database path from config
+                    conn = sqlite3.connect(config.DB_PATH, timeout=10)
                     cur = conn.cursor()
                     user_id = auth.get_user_id(self.current_user)
                     if user_id:
@@ -651,7 +652,7 @@ class VaultApp(ctk.CTk):
         search_entry.bind("<KeyRelease>", filter_files)
         ctk.CTkButton(list_window, text="Close", command=list_window.destroy).pack(pady=10, side="bottom")
 
-    def create_delete_window(self): # Creates the multi-select file deletion window
+    def create_delete_window(self):
         files = auth.get_user_files(self.current_user)
         if not files:
             return custom_dialogs.CustomMessagebox(title="Info", message="You have no files to delete.")
@@ -693,7 +694,8 @@ class VaultApp(ctk.CTk):
             delete_button.configure(state="disabled")
             def deletion_thread():
                 with self.db_lock:
-                    conn = sqlite3.connect('vault.db', timeout=10)
+                    # FIX: Use the correct database path from config
+                    conn = sqlite3.connect(config.DB_PATH, timeout=10)
                     cur = conn.cursor()
                     deleted_count = 0
                     for file_to_delete in selected_files:
