@@ -20,7 +20,7 @@ A secure, multi-user desktop application for encrypting and managing local files
 - **Python 3.11+:** Must be installed from **[python.org](https://www.python.org/downloads/)**. The Microsoft Store version will cause build errors. During installation, make sure to check **"Add python.exe to PATH"**.
 - **Git:** Must be installed on your system.
 
-### 2. Clone the Repository in a directory, ex: C:/ or D:/ (best to use Vs Code IDE)
+### 2. Clone the Repository in a directory, ex: C:/ or D:/ (Preferred to use Vs Code IDE)
 
     git clone https://github.com/MonishV0017/secure-vault.git
     cd secure-vault
@@ -70,6 +70,6 @@ NOTE: The main admin is the email that sends otp to all end users for account cr
 
 If you encounter errors when building the `.exe`, the cause is almost always one of the following:
 
-- **Python from Microsoft Store:** The build will fail. You must uninstall it and use the version from **python.org**.
+- **Python from Microsoft Store:** The build will fail. You must uninstall it and use the version from **python.org**. Also Recommended turn off App execution aliases for App installer (python.exe and python3.exe) in Settings.
 - **Project in a Cloud-Synced Folder:** Building from a OneDrive, Dropbox, or Google Drive folder can cause errors. Move the project to a simple local path like `C:\Projects\` and rebuild.
 - **Antivirus:** Your antivirus software may flag the newly created `.exe` file. If this happens, you may need to temporarily disable your antivirus for the build or add an exception for your project folder.
