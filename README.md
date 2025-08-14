@@ -59,7 +59,7 @@ Make sure your `venv` is active, then run the following single, direct command. 
 
     python -m PyInstaller --noconsole --name SecureVault --add-data "user_guide.txt;." --add-data "disclaimer.txt;." --noupx main.py
 
-NOTE: The database for developer and .exe file are shared. Accidental deletion of .exe file wont impact the existing database once created. Use the same above command again to build .exe , the previous users and their filess,backups are not lost. Factory reset will permanently delete all user data and makes existing backups invalid.
+NOTE: The database for developer and .exe file are shared. Accidental deletion of .exe file won't impact the existing database once created. Use the same above command again to build .exe , the previous users and their files, backups are not lost. Factory reset will permanently delete all user data and makes existing backups invalid.
 
 ### 2. Find the Application
 
