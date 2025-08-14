@@ -34,9 +34,9 @@ A secure, multi-user desktop application for encrypting and managing local files
     # Install all required libraries
     python -m pip install -r requirements.txt
 
-### 4. Create a `.env` File
+### 4. Update the `otp_handler.py` File
 
-This project requires a `.env` file in the root directory to handle sending OTP emails. This email account also acts as the admin for the Factory Reset feature. Create a file named `.env` and add your credentials.
+This project requires to update this file file in the root directory to handle sending OTP emails. This email account also acts as the admin for the Factory Reset feature. In this file, Update your credentials.
 
 **Important:** For Gmail, you must use a **Google App Password** in manage app passwords in the google account you want to setup as admin email, not your regular password.
 
@@ -61,8 +61,9 @@ Make sure your `venv` is active, then run the following single, direct command. 
 
 ### 2. Find the Application
 
-The finished application will be located in the **`dist/SecureVault`** folder. Run the application in the same folder.
-NOTE: The main admin is the email that sends otp to all end users for account creation and for factory reset, that we had setup in .env file. Make sure the distributor/developer of .exe must setup the admin email before sharing it to end user.
+The finished application will be located in the **`dist/SecureVault`** folder. The issuer can zip this SecureVault folder and move it to other directory to use in same laptop for many users to create and use thier own account in the same GUI.
+
+NOTE: The main admin is the email that sends otp to all end users for account creation and for factory reset, that we had setup in otp_handler.py file. Make sure the distributor/developer of .exe must setup the admin email before sharing it to end user.
 
 ---
 
