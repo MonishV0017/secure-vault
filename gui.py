@@ -12,6 +12,7 @@ from io import BytesIO
 import pyotp
 import qrcode
 import base64
+import subprocess
 
 import customtkinter as ctk
 
@@ -78,6 +79,15 @@ class VaultApp(ctk.CTk):
                 self.create_login_ui()
         else:
             self.create_login_ui()
+
+    def _open_file_for_os(self, file_path):
+        # A cross-platform way to open a file with the default application
+        if sys.platform == "win32":
+            os.startfile(file_path)
+        elif sys.platform == "darwin": # macOS
+            subprocess.call(["open", file_path])
+        else: # Linux
+            subprocess.call(["xdg-open", file_path])
 
     def _show_document_viewer(self, title, file_path):
         try:
@@ -950,7 +960,7 @@ class VaultApp(ctk.CTk):
         timeout_ms = INACTIVITY_TIMEOUT_MINUTES * 60 * 1000
         self.inactivity_timer_id = self.after(timeout_ms, self.auto_logout)
 
-    def show_success_with_open_option(self, message, file_path): # Shows a success dialog with an "Open File" button
+    def show_success_with_open_option(self, message, file_path):
         dialog = ctk.CTkToplevel(self)
         dialog.title("Success")
         dialog.geometry("400x150")
@@ -958,10 +968,14 @@ class VaultApp(ctk.CTk):
         ctk.CTkLabel(dialog, text=message, wraplength=380, justify="center").pack(pady=20, padx=10, expand=True)
         button_frame = ctk.CTkFrame(dialog, fg_color="transparent")
         button_frame.pack(pady=10, fill="x")
+        
         def open_action():
-            try: os.startfile(file_path)
-            except Exception as e: custom_dialogs.CustomMessagebox("Error", f"Could not open file: {e}")
+            try:
+                self._open_file_for_os(file_path) # Use the new cross-platform function
+            except Exception as e:
+                custom_dialogs.CustomMessagebox("Error", f"Could not open file: {e}")
             dialog.destroy()
+            
         ctk.CTkButton(button_frame, text="Open File", command=open_action).pack(side="left", padx=20, expand=True)
         ctk.CTkButton(button_frame, text="Close", command=dialog.destroy).pack(side="right", padx=20, expand=True)
         
