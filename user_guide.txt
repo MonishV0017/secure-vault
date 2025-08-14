@@ -1,72 +1,90 @@
-SecureVault User Guide
+Secure Vault - User Guide
 
 Welcome to Secure Vault! This guide explains how to use all the features of the application.
 
 -----------------------------
-1. Account Management
+1. Getting Started
 -----------------------------
-    
-Creating an Account:
+
+**Creating an Account (Sign Up):**
   - Click the "Sign Up" button on the main screen.
-  - Enter a unique username, email address, and a "Strong" password (the app will guide you).
-  - Enter the One-Time Password (OTP) sent to your email to verify it.
-  - Scan the QR code with an authenticator app (like Google Authenticator) to set up Two-Factor Authentication (MFA).
+  - Enter a unique username and a valid email address.
+  - As you type your password, a real-time strength meter will guide you. It will turn green and say "Strong" when all criteria are met (length, lowercase, number, symbol).
+  - The "Send OTP" button will only become active once your password is "Strong".
+  - Click "Send OTP" and enter the code sent to your email to verify your address.
+  - After signup, you MUST scan the QR code with an authenticator app (like Google Authenticator) to complete the mandatory Two-Factor Authentication (MFA) setup.
 
-Logging In:
-  - You will need your Username, Password, the on-screen CAPTCHA, and your 6-digit MFA code from your authenticator app.
+**Logging In:**
+  - To log in, you will need your Username, Password, the on-screen CAPTCHA, and the current 6-digit MFA code from your authenticator app.
 
-Forgot Password:
-  - This feature helps you reset your password if you are logged out. It requires access to your registered email.
-  - The success message will also remind you of your username.
+---
+### 2. The Main Dashboard
 
-Change Password:
-  - This button appears on the main dashboard after you log in.
-  - It allows you to change your login password, but you must know your current password to do so.
+After logging in, you will see the main dashboard with buttons for all primary features.
 
------------------------------
-2. Core Vault Features
------------------------------
+**Auto-Logout:**
+  - For your security, if you are inactive for 10 minutes, the application will automatically log you out.
 
-Uploading a File:
+---
+### 3. File Management Features
+
+**Uploading a File:**
   - Click "Upload File to Encrypt".
-  - Select a file from your computer.
-  - WARNING: You must enter a strong passphrase for each file. Do not forget this passphrase, as it is the only way to decrypt your file.
+  - Select a file from your computer (max 5 MB).
+  - If a file with the same name exists, you will be given the option to "Overwrite" it or "Save as Copy".
+  - WARNING: You must enter a strong passphrase for EACH file. This passphrase is the only key to decrypting this file. Do not forget it.
 
-Listing Files:
-  - Shows a complete, searchable list of all your encrypted files. You can type in the search bar to filter the list.
+**Listing Files:**
+  - Shows a complete list of all your encrypted files.
+  - You can type in the search bar at the top to filter the list in real-time.
 
-Deleting Files:
+**Deleting Files:**
   - Click "Delete Encrypted Files".
-  - Select one or more files using the checkboxes.
+  - Select one or more files using the checkboxes. "Select All" and "Deselect All" buttons are available for convenience.
   - WARNING: This action is permanent and cannot be undone.
 
-Retrieving a File:
+**Retrieving a File:**
   - Click "Retrieve File".
-  - Select a single file using the radio button.
+  - Select a single file from the list using the radio button.
   - You must enter the correct, original passphrase you used when you uploaded that specific file.
-  - Choose a location on your computer to save the decrypted file. A success message will give you an "Open File" button for convenience.
+  - Choose a location on your computer to save the decrypted file. A success message will give you an "Open File" button.
 
------------------------------
-3. Data Safety & Admin
------------------------------
+---
+### 4. Security and Data Management
 
-Backup Vault:
-  - Creates a single, secure backup file of your current vault.
-  - WARNING: You will be asked for a GPG Password to encrypt the entire backup. Do not lose this password.
+**Change Password:**
+  - Allows a logged-in user to change their main login password.
+  - You must know your current password and provide a new "Strong" password to proceed.
+
+**Backup Vault:**
+  - Creates a single, secure backup file (`.sbu`) of your current vault.
+  - WARNING: You will be asked for a Backup Password. This password encrypts the entire backup file. Do not lose this password.
   - It is highly recommended to store backup files on an external drive.
 
-Restore Vault:
+**Restore Vault:**
   - Restores your vault from a backup file.
-  - WARNING: This will completely delete all files currently in your vault and replace them with the files from the backup.
-  - You can ONLY restore backups that belong to your specific user account.
+  - WARNING: This is a destructive action. It will completely delete all files currently in your vault and replace them with the files from the backup.
+  - You can ONLY restore backups that belong to your unique user account ID.
 
-View Activity Log:
-  - Shows a complete history of all actions on your account. Use this to check for suspicious activity.
+**View Activity Log:**
+  - Shows a complete, time-stamped history of all actions on your account (logins, uploads, deletes, etc.). Use this to check for suspicious activity.
 
-Delete Account:
-  - Permanently deletes your account and all associated files.
-  - WARNING: This is irreversible. Your existing backups will become unusable.
+---
+### 5. Account and Application Reset
 
-Factory Reset App (Login Screen):
-  - The most destructive action. It completely WIPES the entire application for ALL users.
-  - It is protected by the admin. Please contact the admin email, setup by the distributor/developer who had shared the .exe file for further details.
+**Delete Account:**
+  - Permanently deletes your own account and all associated files.
+  - WARNING: This action is irreversible. Your existing backups will become unusable because the user they belong to will be gone.
+  - This requires your login password and a current MFA code for final confirmation.
+
+**The Admin Role & Factory Reset:**
+  - The **first user** to ever create an account in the application is designated as the "Admin".
+  - Only this Admin can initiate a Factory Reset.
+  - To perform a reset, click the "Factory Reset" button on the login screen. You must enter the Admin's email address and verify it with an OTP.
+  - WARNING: The Factory Reset is the most destructive action. It completely WIPES the entire application for ALL users, deleting the database and all uploaded         files.
+
+---
+### 6. Login Screen Helpers
+
+**User Guide / Disclaimer Buttons:**
+  - On the login screen, you can click these buttons to view this guide or the application's Disclaimer and Privacy Policy at any time.
