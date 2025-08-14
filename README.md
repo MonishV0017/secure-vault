@@ -74,3 +74,9 @@ If you encounter errors when building the `.exe`, the cause is almost always one
 - **Python from Microsoft Store:** The build will fail. You must uninstall it and use the version from **python.org**. Also Recommended turn off App execution aliases for App installer (python.exe and python3.exe) in Settings.
 - **Project in a Cloud-Synced Folder:** Building from a OneDrive, Dropbox, or Google Drive folder can cause errors. Move the project to a simple local path like `C:\Projects\` and rebuild.
 - **Antivirus:** Your antivirus software may flag the newly created `.exe` file. If this happens, you may need to temporarily disable your antivirus for the build or add an exception for your project folder.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
