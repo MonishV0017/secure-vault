@@ -1,6 +1,6 @@
 # Secure Vault - Desktop Application
 
-A secure, multi-user desktop application for encrypting and managing local files. Built with Python and CustomTkinter designed for Windows OS.
+A secure, multi-user desktop application for encrypting and managing local files. Built with Python and CustomTkinter designed for Windows, MacOS or Linux based System.
 
 ## Features
 
